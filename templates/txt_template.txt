@@ -1,0 +1,29 @@
+{{ CONTACT_INFO.name }}
+{{ CONTACT_INFO.address_1 }}
+{{ CONTACT_INFO.city }}, {{ CONTACT_INFO.state }} {{ CONTACT_INFO.zip }}
+{{ CONTACT_INFO.phone }}
+{{ CONTACT_INFO.email }}
+
+TECHNICAL SKILLS
+================
+{% for skill in TECHNICAL_SKILLS %}{{ "%-32s%-s"|format(skill.category + ":", skill.entry) }}
+{% endfor %}
+
+WORK EXPERIENCE
+===============
+{% for job in WORK_EXPERIENCE %}
+{{ job.name }} - {{ job.location }}
+-----------------------------------------------------------
+{% for position in job.positions %}
+{{ "%-32s%-s"|format(position.name, position.dates) }}{% endfor %}
+{% for duty in job.duties %}
+* {{ duty }}{% endfor %}
+{% endfor %}
+
+EDUCATION
+=========
+{% for school in EDUCATION %}
+{{ school.name }}
+{{ school.degree }}, {{ school.dates }}
+
+{% endfor %}
